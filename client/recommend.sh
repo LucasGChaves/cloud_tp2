@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PORT=5000
+PORT=32066
 HOST="http://localhost:$PORT/recommend"
 
 DATA='{"songs": ["spotify:track:7KXjTSCq5nL1LoYtL7XAwS", "spotify:track:0VgkVdmE4gld66l8iyGjgx", "spotify:track:6HZILIRieu8S0iqY8kIKhj"]}'

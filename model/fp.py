@@ -1,6 +1,7 @@
 import pickle
 import os
 import pandas as pd
+import subprocess
 from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import fpgrowth, association_rules
 from dotenv import load_dotenv, find_dotenv
@@ -35,9 +36,4 @@ with open('/pickle/rules.pkl', 'wb') as f:
 with open('/pickle/date.pkl', 'wb') as f:
     pickle.dump(date.today(), f)
 
-
-print(frequent_itemsets)
-print(len(frequent_itemsets))
-print()
-print(rules)
-print(len(rules))
+subprocess.run(["ls", "-l", "/pickle"])

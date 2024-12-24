@@ -17,25 +17,21 @@ spec:
     spec:
       initContainers:
       - name: model-container
-        image: lucasgchaves/recommender_model:1.0.0
+        image: lucasgchaves/recommender_model:2.0.0
         volumeMounts:
         - name: pickle-data
           mountPath: /pickle
         env:
         - name: DATASET
           value: "https://github.com/LucasGChaves/cloud_tp2/raw/refs/heads/main/data/2023_spotify_ds1.csv"
-        - name: VERSION
-          value: 1.0.0
       containers:
       - name: recommender-api
         image: lucasgchaves/recommender_system_api:1.0.0
         ports:
         - containerPort: 5000
         env:
-        - name: DATASET
-          value: "https://github.com/LucasGChaves/cloud_tp2/raw/refs/heads/main/data/2023_spotify_ds1.csv"
         - name: VERSION
-          value: 1.0.0
+          value: 2.0.0
         volumeMounts:
         - name: pickle-data
           mountPath: /pickle

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PORT=5000
+PORT=32066
 HOST="http://localhost:$PORT/"
 
 DATA=''
