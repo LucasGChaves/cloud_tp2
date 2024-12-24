@@ -3,14 +3,14 @@ kind: PersistentVolumeClaim
 metadata:
   namespace: lucaschaves
   name: project2-pv2-lucaschaves
-  labels:
-    type: local
 spec:
-  capacity:
-    storage: 1Gi
   storageClassName: default-storage-class-lucaschaves
+  selector:
+    matchLabels:
+      namespace: lucaschaves
   accessModes:
     - ReadWriteMany
-  persistentVolumeReclaimPolicy: Recycle
-  hostPath:
-    path: /home/lucaschaves/project2-pv2
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: project2-pv2-lucaschaves
