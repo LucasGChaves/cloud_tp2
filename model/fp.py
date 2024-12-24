@@ -1,11 +1,14 @@
 import pickle
+import os
 import pandas as pd
 from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import fpgrowth, association_rules
+from dotenv import load_dotenv, find_dotenv
+from datetime import date
 
-playlist_ds1 = pd.read_csv('data/2023_spotify_ds1.csv', sep=',')
-#playlist_ds2 = pd.read_csv('2023_spotify_ds2.csv', sep=',')
-#songs_ds = pd.read_csv('2023_spotify_songs.csv', sep=',')
+load_dotenv(find_dotenv())
+
+ds = pd.read_csv(os.getenv("DATASET"), sep=',')
 
 def apply_fpgrowth(data):
     pids = data['pid'].unique()
@@ -21,13 +24,16 @@ def apply_fpgrowth(data):
     rules = rules.sort_values(by=["confidence"], ascending=False)
     return frequent_itemsets, rules
 
-frequent_itemsets, rules = apply_fpgrowth(playlist_ds1)
+frequent_itemsets, rules = apply_fpgrowth(ds)
 
-with open('model/frequent_itemsets.pkl', 'wb') as f:
-    pickle.dump(frequent_itemsets, f)
+# with open('model/frequent_itemsets.pkl', 'wb') as f:
+#     pickle.dump(frequent_itemsets, f)
 
-with open('model/rules.pkl', 'wb') as f:
+with open('/model/rules.pkl', 'wb') as f:
     pickle.dump(rules, f)
+
+with open('/model/date.pkl', 'wb') as f:
+    pickle.dump(date.today(), f)
 
 
 print(frequent_itemsets)

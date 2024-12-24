@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playlist-recommender-deployment
+  namespace: lucaschaves
+  labels:
+    app: lucaschaves-playlist-recommender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lucaschaves-playlist-recommender
+  template:
+    metadata:
+      labels:
+        app: lucaschaves-playlist-recommender
+    spec:
+      initContainers:
+      - name: model-container
+        image: lucasgchaves/recommender_model:1.0.0
+        volumeMounts:
+        - name: model-volume
+          mountPath: /model
+        env:
+        - name: DATASET
+          value: "https://github.com/LucasGChaves/cloud_tp2/raw/refs/heads/main/data/2023_spotify_ds1.csv"
+        - name: VERSION
+          value: 1.0.0
+      containers:
+      - name: recommender-api
+        image: lucasgchaves/recommender_system_api:1.0.0
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DATASET
+          value: "https://github.com/LucasGChaves/cloud_tp2/raw/refs/heads/main/data/2023_spotify_ds1.csv"
+        - name: VERSION
+          value: 1.0.0
+        volumeMounts:
+        - name: model-volume
+          mountPath: /model
+      volumes:
+      - name: model-volume
+        persistentVolumeClaim:
+          claimName: project2-pv2-lucaschaves

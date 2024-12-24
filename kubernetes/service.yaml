@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: playlist-recommender-service
+  namespace: lucaschaves
+spec:
+  selector:
+    app: lucaschaves-playlist-recommender
+  ports:
+  - protocol: TCP
+    port: 52066
+    targetPort: 5000
+    nodePort: 32066
+  type: NodePort

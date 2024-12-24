@@ -1,14 +1,10 @@
 FROM python:3.12.8-slim-bullseye
 
-WORKDIR /app
+WORKDIR /model
 
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-ENV FLASK_APP=app.py
-
-EXPOSE 5000
-
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["python", "fp.py"]
