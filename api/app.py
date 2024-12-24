@@ -7,10 +7,10 @@ load_dotenv(find_dotenv())
 
 app = Flask(__name__)
 
-with open('/model/rules.pkl', 'rb') as f:
+with open('/pickle/rules.pkl', 'rb') as f:
     rules = pickle.load(f)
 
-with open('/model/date.pkl', 'rb') as f:
+with open('/pickle/date.pkl', 'rb') as f:
     date = pickle.load(f)
 
 rules_list = [

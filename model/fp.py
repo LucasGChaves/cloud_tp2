@@ -29,10 +29,10 @@ frequent_itemsets, rules = apply_fpgrowth(ds)
 # with open('model/frequent_itemsets.pkl', 'wb') as f:
 #     pickle.dump(frequent_itemsets, f)
 
-with open('/model/rules.pkl', 'wb') as f:
+with open('/pickle/rules.pkl', 'wb') as f:
     pickle.dump(rules, f)
 
-with open('/model/date.pkl', 'wb') as f:
+with open('/pickle/date.pkl', 'wb') as f:
     pickle.dump(date.today(), f)
 
 
