@@ -26,7 +26,7 @@ spec:
           value: "https://github.com/LucasGChaves/cloud_tp2/raw/refs/heads/main/data/2023_spotify_ds1.csv"
       containers:
       - name: recommender-api
-        image: lucasgchaves/recommender_system_api:1.0.0
+        image: lucasgchaves/recommender_system_api:2.0.0
         ports:
         - containerPort: 5000
         env:
