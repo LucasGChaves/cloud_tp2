@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PORT=32066
-HOST="http://localhost:$PORT/"
+PORT=32066 #trocar para 5000 se o teste for local e não no cluster k8
+HOST="http://localhost:$PORT/api"
 
 DATA=''
 

@@ -22,11 +22,11 @@ rules_list = [
     for _, rule in rules.iterrows()
 ]
 
-@app.route("/", methods=["GET"])
+@app.route("/api", methods=["GET"])
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("/recommend", methods=["POST"])
+@app.route("/api/recommend", methods=["POST"])
 def recommend():
     try:
         data = request.json
