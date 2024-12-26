@@ -8,7 +8,7 @@ spec:
     app: lucaschaves-playlist-recommender
   ports:
   - protocol: TCP
-    port: 52066
+    port: 52044
     targetPort: 5000
-    nodePort: 32066
+    nodePort: 32044
   type: NodePort
