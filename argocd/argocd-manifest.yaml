@@ -1,0 +1,245 @@
+metadata:
+  creationTimestamp: "2024-12-24T20:51:31Z"
+  generation: 11485
+  managedFields:
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:destination:
+          .: {}
+          f:namespace: {}
+          f:server: {}
+        f:project: {}
+        f:source:
+          .: {}
+          f:path: {}
+          f:repoURL: {}
+          f:targetRevision: {}
+        f:syncPolicy:
+          .: {}
+          f:automated:
+            .: {}
+            f:selfHeal: {}
+      f:status:
+        .: {}
+        f:health: {}
+        f:summary: {}
+        f:sync:
+          .: {}
+          f:comparedTo:
+            .: {}
+            f:destination: {}
+            f:source: {}
+    manager: argocd-server
+    operation: Update
+    time: "2025-01-03T18:41:42Z"
+  - apiVersion: argoproj.io/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:controllerNamespace: {}
+        f:health:
+          f:status: {}
+        f:history: {}
+        f:operationState:
+          .: {}
+          f:finishedAt: {}
+          f:message: {}
+          f:operation:
+            .: {}
+            f:initiatedBy:
+              .: {}
+              f:automated: {}
+            f:retry:
+              .: {}
+              f:limit: {}
+            f:sync:
+              .: {}
+              f:autoHealAttemptsCount: {}
+              f:resources: {}
+              f:revision: {}
+          f:phase: {}
+          f:startedAt: {}
+          f:syncResult:
+            .: {}
+            f:resources: {}
+            f:revision: {}
+            f:source:
+              .: {}
+              f:path: {}
+              f:repoURL: {}
+              f:targetRevision: {}
+        f:reconciledAt: {}
+        f:resources: {}
+        f:sourceType: {}
+        f:summary:
+          f:images: {}
+        f:sync:
+          f:comparedTo:
+            f:destination:
+              f:namespace: {}
+              f:server: {}
+            f:source:
+              f:path: {}
+              f:repoURL: {}
+              f:targetRevision: {}
+          f:revision: {}
+          f:status: {}
+    manager: argocd-application-controller
+    operation: Update
+    time: "2025-01-03T19:02:16Z"
+  name: recommender-system-lucaschaves
+  namespace: argocd
+  resourceVersion: "11247137"
+  uid: 8f15aa36-e048-4ee0-b993-258085c7cfca
+spec:
+  destination:
+    namespace: lucaschaves
+    server: https://kubernetes.default.svc
+  project: lucaschaves-project
+  source:
+    path: kubernetes
+    repoURL: https://github.com/LucasGChaves/cloud_tp2.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2024-12-24T20:51:32Z"
+    deployedAt: "2024-12-24T20:51:33Z"
+    id: 0
+    initiatedBy:
+      automated: true
+    revision: a50863a58eff0400475742f9a7483c02feaf9fe1
+    source:
+      path: kubernetes
+      repoURL: https://github.com/LucasGChaves/cloud_tp2.git
+      targetRevision: main
+  - deployStartedAt: "2024-12-24T23:17:41Z"
+    deployedAt: "2024-12-24T23:17:42Z"
+    id: 1
+    initiatedBy:
+      automated: true
+    revision: 0a97ef8a7160cb4c0c2e1d37ff9497bd9c402920
+    source:
+      path: kubernetes
+      repoURL: https://github.com/LucasGChaves/cloud_tp2.git
+      targetRevision: main
+  - deployStartedAt: "2024-12-25T04:44:45Z"
+    deployedAt: "2024-12-25T04:44:46Z"
+    id: 2
+    initiatedBy:
+      automated: true
+    revision: f55ab96a769661364cb2f4f4cbfa2c42e5487747
+    source:
+      path: kubernetes
+      repoURL: https://github.com/LucasGChaves/cloud_tp2.git
+      targetRevision: main
+  - deployStartedAt: "2024-12-25T04:50:30Z"
+    deployedAt: "2024-12-25T04:50:31Z"
+    id: 3
+    initiatedBy:
+      automated: true
+    revision: e70b0da3d410c40ab18aa8ee2995d86ddece00c9
+    source:
+      path: kubernetes
+      repoURL: https://github.com/LucasGChaves/cloud_tp2.git
+      targetRevision: main
+  - deployStartedAt: "2024-12-25T04:53:41Z"
+    deployedAt: "2024-12-25T04:53:42Z"
+    id: 4
+    initiatedBy:
+      automated: true
+    revision: 9151667fdebc84dd3c77e778cacc707f0b425ef7
+    source:
+      path: kubernetes
+      repoURL: https://github.com/LucasGChaves/cloud_tp2.git
+      targetRevision: main
+  - deployStartedAt: "2024-12-26T20:44:42Z"
+    deployedAt: "2024-12-26T20:44:42Z"
+    id: 5
+    initiatedBy:
+      automated: true
+    revision: 538bbaa1d03ac76b4390887aadd1564a0c3dad30
+    source:
+      path: kubernetes
+      repoURL: https://github.com/LucasGChaves/cloud_tp2.git
+      targetRevision: main
+  operationState:
+    finishedAt: "2024-12-26T20:47:24Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        autoHealAttemptsCount: 6
+        resources:
+        - kind: Service
+          name: playlist-recommender-service
+        revision: 538bbaa1d03ac76b4390887aadd1564a0c3dad30
+    phase: Succeeded
+    startedAt: "2024-12-26T20:47:24Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/playlist-recommender-service configured
+        name: playlist-recommender-service
+        namespace: lucaschaves
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 538bbaa1d03ac76b4390887aadd1564a0c3dad30
+      source:
+        path: kubernetes
+        repoURL: https://github.com/LucasGChaves/cloud_tp2.git
+        targetRevision: main
+  reconciledAt: "2025-01-03T19:02:16Z"
+  resources:
+  - health:
+      status: Healthy
+    kind: PersistentVolumeClaim
+    name: project2-pv2-lucaschaves
+    namespace: lucaschaves
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: playlist-recommender-service
+    namespace: lucaschaves
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: playlist-recommender-deployment
+    namespace: lucaschaves
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - lucasgchaves/recommender_model:2.0.0
+    - lucasgchaves/recommender_system_api:2.0.0
+  sync:
+    comparedTo:
+      destination:
+        namespace: lucaschaves
+        server: https://kubernetes.default.svc
+      source:
+        path: kubernetes
+        repoURL: https://github.com/LucasGChaves/cloud_tp2.git
+        targetRevision: main
+    revision: 538bbaa1d03ac76b4390887aadd1564a0c3dad30
+    status: Synced
